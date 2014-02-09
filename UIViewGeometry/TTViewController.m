@@ -23,7 +23,9 @@
     
     self.board = [[TTBoard alloc]initBoardWithSize:CGRectMake(0, 124, 320, 320) numberOfCells:8];
     
-    [self.view addSubview:self.board];
+    if (self.board) {
+        [self.view addSubview:self.board];
+    }
     
 	// Do any additional setup after loading the view, typically from a nib.
 }

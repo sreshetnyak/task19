@@ -20,28 +20,29 @@
         
         int width = rect.size.width/number;
         int height = rect.size.height/number;
+        int deltaCheckers = 20;
+        
         for (int i = 0; i < number; i++) {
             for (int j = 0; j < number; j++) {
+                UIView *checkersView = [[UIView alloc]init];
                 UIView *view = [[UIView alloc]init];
-                if ((i % 2) == 0) {
-                    if ((j % 2) == 0) {
-                        [view setBackgroundColor:[UIColor whiteColor]];
-                        [view setTag:1];
-                    } else {
-                        [view setBackgroundColor:[UIColor blackColor]];
-                        [view setTag:2];
+                if (((i % 2) != 0 && (j % 2) == 0) | ((i % 2) == 0 && (j % 2) != 0)) {
+                    [view setBackgroundColor:[UIColor blackColor]];
+                    [view setTag:2];
+                    
+                    if (j < 3 | j > 4) {
+                        [checkersView setBackgroundColor:[UIColor grayColor]];
+                        [checkersView setTag:4];
                     }
+                    
                 } else {
-                    if ((j % 2) == 0) {
-                        [view setBackgroundColor:[UIColor blackColor]];
-                        [view setTag:2];
-                    } else {
-                        [view setBackgroundColor:[UIColor whiteColor]];
-                        [view setTag:1];
-                    }
+                    [view setBackgroundColor:[UIColor whiteColor]];
+                    [view setTag:1];
                 }
                 view.frame = CGRectMake(i*width, j*height, width, height);
+                checkersView.frame = CGRectMake(i*width + deltaCheckers/2, j*height + deltaCheckers/2, width - deltaCheckers, height - deltaCheckers);
                 [self addSubview:view];
+                [self addSubview:checkersView];
             }
         }
         

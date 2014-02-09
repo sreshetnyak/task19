@@ -39,4 +39,8 @@
     [self.board changeColorBoard];
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+
 @end

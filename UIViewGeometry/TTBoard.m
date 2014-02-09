@@ -21,12 +21,9 @@
         int width = rect.size.width/number;
         int height = rect.size.height/number;
         for (int i = 0; i < number; i++) {
-            
             for (int j = 0; j < number; j++) {
                 UIView *view = [[UIView alloc]init];
-                
                 if ((i % 2) == 0) {
-                    
                     if ((j % 2) == 0) {
                         [view setBackgroundColor:[UIColor whiteColor]];
                         [view setTag:1];
@@ -34,9 +31,7 @@
                         [view setBackgroundColor:[UIColor blackColor]];
                         [view setTag:2];
                     }
-                    
                 } else {
-                    
                     if ((j % 2) == 0) {
                         [view setBackgroundColor:[UIColor blackColor]];
                         [view setTag:2];
@@ -48,12 +43,10 @@
                 view.frame = CGRectMake(i*width, j*height, width, height);
                 [self addSubview:view];
             }
-            
         }
         
         self.backgroundColor = [UIColor clearColor];
         self.frame = rect;
-        
         self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     }
     

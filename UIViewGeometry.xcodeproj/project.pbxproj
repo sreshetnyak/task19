@@ -21,6 +21,7 @@
 		A5421FAB18A6AE8300E50A80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5421F8D18A6AE8300E50A80 /* UIKit.framework */; };
 		A5421FB318A6AE8300E50A80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5421FB118A6AE8300E50A80 /* InfoPlist.strings */; };
 		A5421FB518A6AE8300E50A80 /* UIViewGeometryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5421FB418A6AE8300E50A80 /* UIViewGeometryTests.m */; };
+		A5EB36CB18A774270095785F /* TTBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EB36CA18A774270095785F /* TTBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		A5421FB018A6AE8300E50A80 /* UIViewGeometryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIViewGeometryTests-Info.plist"; sourceTree = "<group>"; };
 		A5421FB218A6AE8300E50A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5421FB418A6AE8300E50A80 /* UIViewGeometryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewGeometryTests.m; sourceTree = "<group>"; };
+		A5EB36C918A774270095785F /* TTBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBoard.h; sourceTree = "<group>"; };
+		A5EB36CA18A774270095785F /* TTBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBoard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				A5421F9B18A6AE8300E50A80 /* Main.storyboard */,
 				A5421F9E18A6AE8300E50A80 /* TTViewController.h */,
 				A5421F9F18A6AE8300E50A80 /* TTViewController.m */,
+				A5EB36C918A774270095785F /* TTBoard.h */,
+				A5EB36CA18A774270095785F /* TTBoard.m */,
 				A5421FA118A6AE8300E50A80 /* Images.xcassets */,
 				A5421F9018A6AE8300E50A80 /* Supporting Files */,
 			);
@@ -250,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5EB36CB18A774270095785F /* TTBoard.m in Sources */,
 				A5421F9A18A6AE8300E50A80 /* TTAppDelegate.m in Sources */,
 				A5421F9618A6AE8300E50A80 /* main.m in Sources */,
 				A5421FA018A6AE8300E50A80 /* TTViewController.m in Sources */,
@@ -461,6 +467,7 @@
 				A5421FBA18A6AE8300E50A80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5421FBB18A6AE8300E50A80 /* Build configuration list for PBXNativeTarget "UIViewGeometryTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +476,7 @@
 				A5421FBD18A6AE8300E50A80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

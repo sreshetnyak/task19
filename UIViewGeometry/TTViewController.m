@@ -7,8 +7,11 @@
 //
 
 #import "TTViewController.h"
+#import "TTBoard.h"
 
 @interface TTViewController ()
+
+@property (strong,nonatomic) TTBoard *board;
 
 @end
 
@@ -17,6 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.board = [[TTBoard alloc]initBoardWithSize:CGRectMake(0, 124, 320, 320) numberOfCells:8];
+    
+    [self.view addSubview:self.board];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -24,6 +32,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    
+    [self.board changeColorBoard];
 }
 
 @end

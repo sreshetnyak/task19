@@ -36,9 +36,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    
-    [self.board changeColorBoard];
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.board changeColorBoardWithOrientation:toInterfaceOrientation];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {

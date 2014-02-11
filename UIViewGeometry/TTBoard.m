@@ -45,7 +45,6 @@
                 [self addSubview:checkersView];
             }
         }
-        
         self.backgroundColor = [UIColor clearColor];
         self.frame = rect;
         self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -54,17 +53,15 @@
     return self;
 }
 
-- (void)changeColorBoard {
+- (void)changeColorBoardWithOrientation:(UIInterfaceOrientation)orientation {
     
-    UIInterfaceOrientation orientations = [UIApplication sharedApplication].statusBarOrientation;
-    
-    if(orientations == 1) {
+    if(orientation == 1) {
          [self changeColor:[UIColor blackColor]];
-    } else if(orientations == 2) {
+    } else if(orientation == 2) {
         [self changeColor:[UIColor yellowColor]];
-    } else if(orientations == 3) {
+    } else if(orientation == 3) {
         [self changeColor:[UIColor redColor]];
-    } else if(orientations == 4) {
+    } else if(orientation == 4) {
         [self changeColor:[UIColor greenColor]];
     }
     

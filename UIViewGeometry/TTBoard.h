@@ -11,6 +11,6 @@
 @interface TTBoard : UIView
 
 - (UIView *)initBoardWithSize:(CGRect)rect numberOfCells:(NSUInteger)number;
-- (void)changeColorBoard;
+- (void)changeColorBoardWithOrientation:(UIInterfaceOrientation)orientation;
 
 @end

@@ -9,6 +9,8 @@
 #import "TTBoard.h"
 
 @interface TTBoard ()
+@property (nonatomic,strong) NSMutableArray *whiteCheckers;
+@property (nonatomic,strong) NSMutableArray *blackCheckers;
 
 @end
 
@@ -17,6 +19,9 @@
 - (UIView *)initBoardWithSize:(CGRect)rect numberOfCells:(NSUInteger)number {
 
     if (self = [super init]) {
+        
+        self.whiteCheckers = [[NSMutableArray alloc]init];
+        self.blackCheckers = [[NSMutableArray alloc]init];
         
         int width = rect.size.width/number;
         int height = rect.size.height/number;
@@ -30,9 +35,15 @@
                     [view setBackgroundColor:[UIColor blackColor]];
                     [view setTag:2];
                     
-                    if (j < 3 | j > 4) {
+                    if (j < 3) {
                         [checkersView setBackgroundColor:[UIColor grayColor]];
                         [checkersView setTag:4];
+                        [self.blackCheckers addObject:checkersView];
+                    }
+                    if (j > 4) {
+                        [checkersView setBackgroundColor:[UIColor blueColor]];
+                        [checkersView setTag:5];
+                        [self.whiteCheckers addObject:checkersView];
                     }
                     
                 } else {
@@ -67,6 +78,30 @@
     
 }
 
+- (void)randomSwapCheckers {
+    
+    CGRect whiteRect = CGRectZero;
+    CGRect blackRect = CGRectZero;
+    
+    for (int i = 0; i < 12; i++) {
+        UIView *white = [self.whiteCheckers objectAtIndex:arc4random_uniform(12)];
+        UIView *black = [self.blackCheckers objectAtIndex:arc4random_uniform(12)];
+        
+        whiteRect = white.frame;
+        blackRect = black.frame;
+        
+        [UIView animateWithDuration:3.0 animations:^{
+            [self bringSubviewToFront:black];
+            black.frame = whiteRect;
+            [self bringSubviewToFront:white];
+            white.frame = blackRect;
+            
+        }];
+    
+    }
+    
+}
+
 - (void)changeColor:(UIColor *)color {
     for (UIView *view in [self subviews]) {
         if (view.tag == 2) {
@@ -76,7 +111,9 @@
                 
             }];
         }
+        
     }
+    [self randomSwapCheckers];
 }
 
 

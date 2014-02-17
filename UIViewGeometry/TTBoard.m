@@ -66,13 +66,13 @@
 
 - (void)changeColorBoardWithOrientation:(UIInterfaceOrientation)orientation {
     
-    if(orientation == 1) {
+    if(orientation == UIDeviceOrientationPortrait) {
          [self changeColor:[UIColor blackColor]];
-    } else if(orientation == 2) {
+    } else if(orientation == UIDeviceOrientationPortraitUpsideDown) {
         [self changeColor:[UIColor yellowColor]];
-    } else if(orientation == 3) {
+    } else if(orientation == UIDeviceOrientationLandscapeLeft) {
         [self changeColor:[UIColor redColor]];
-    } else if(orientation == 4) {
+    } else if(orientation == UIDeviceOrientationLandscapeRight) {
         [self changeColor:[UIColor greenColor]];
     }
     
@@ -80,39 +80,41 @@
 
 - (void)randomSwapCheckers {
     
-    CGRect whiteRect = CGRectZero;
-    CGRect blackRect = CGRectZero;
     
-    for (int i = 0; i < 12; i++) {
-        UIView *white = [self.whiteCheckers objectAtIndex:arc4random_uniform(12)];
-        UIView *black = [self.blackCheckers objectAtIndex:arc4random_uniform(12)];
-        
-        whiteRect = white.frame;
-        blackRect = black.frame;
-        
         [UIView animateWithDuration:3.0 animations:^{
-            [self bringSubviewToFront:black];
-            black.frame = whiteRect;
-            [self bringSubviewToFront:white];
-            white.frame = blackRect;
             
+            CGRect whiteRect = CGRectZero;
+            CGRect blackRect = CGRectZero;
+            
+            for (int i = 0; i < 12; i++) {
+                UIView *white = [self.whiteCheckers objectAtIndex:arc4random_uniform(12)];
+                UIView *black = [self.blackCheckers objectAtIndex:arc4random_uniform(12)];
+                
+                whiteRect = white.frame;
+                blackRect = black.frame;
+
+                [self bringSubviewToFront:black];
+                black.frame = whiteRect;
+                [self bringSubviewToFront:white];
+                white.frame = blackRect;
+            }
         }];
-    
-    }
     
 }
 
 - (void)changeColor:(UIColor *)color {
-    for (UIView *view in [self subviews]) {
-        if (view.tag == 2) {
+
             [UIView animateWithDuration:1.0 animations:^{
-                [view setBackgroundColor:color];
+                for (UIView *view in [self subviews]) {
+                    if (view.tag == 2) {
+                        [view setBackgroundColor:color];
+                        
+                    }
+                }
             } completion:^(BOOL finished) {
                 
             }];
-        }
-        
-    }
+
     [self randomSwapCheckers];
 }
 
